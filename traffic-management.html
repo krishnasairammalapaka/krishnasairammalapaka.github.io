@@ -20,9 +20,9 @@
     <!-- Image Carousel -->
     <div class="container mx-auto px-4 py-8">
         <div class="max-w-4xl mx-auto" x-data="{ activeSlide: 0, slides: [
-            '{{ url_for('static', filename='images/traffic1.jpg') }}',
-            '{{ url_for('static', filename='images/traffic2.jpg') }}',
-            '{{ url_for('static', filename='images/traffic3.jpg') }}'
+            'https://i.ibb.co/PG6Mq0wd/traffic1.png',
+            'https://i.ibb.co/Q3mbwP7F/traffic2.png',
+            'https://i.ibb.co/pB4Kf7yZ/traffic3.png'
         ] }" x-init="setInterval(() => { activeSlide = activeSlide === slides.length - 1 ? 0 : activeSlide + 1 }, 3000)">
             <!-- Carousel Container -->
             <div class="relative rounded-xl overflow-hidden shadow-2xl h-[500px]">
