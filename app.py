@@ -1,6 +1,14 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
+import os
 
-app = Flask(__name__,template_folder='.')
+app = Flask(__name__, template_folder='.', static_folder='static')
+
+# Ensure the static/images directory exists
+os.makedirs(os.path.join(app.static_folder, 'images'), exist_ok=True)
+
+@app.route('/traffic-management')
+def traffic_management():
+    return render_template('traffic-management.html')
 
 @app.route('/')
 def home():
