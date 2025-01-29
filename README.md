@@ -1,6 +1,5 @@
 # Personal Portfolio Website
 
-![Portfolio Preview](static/images/portfolio-preview.jpg)
 
 A modern, responsive personal portfolio website built with Flask, Tailwind CSS, and Alpine.js.
 
