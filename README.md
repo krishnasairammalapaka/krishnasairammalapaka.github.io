@@ -13,18 +13,21 @@ A modern, responsive personal portfolio website built with Flask, Tailwind CSS, 
 - Dynamic navigation
 - Clean and modern UI
 
-## 📸 Screenshots
+
+📸 Screenshots
 
 ### Home Page
-![Home Page](static/images/home-preview.jpg)
+![Screenshot 2025-01-30 004328](https://github.com/user-attachments/assets/22bfa8dd-add6-4ecc-8fa2-e8d2e5c5ae75)
+
 
 ### Projects Page
-![Projects Page](static/images/projects-preview.jpg)
+![Screenshot 2025-01-30 004339](https://github.com/user-attachments/assets/c719b2c9-b846-475f-81f7-192796113a11)
 
 ### Project Details
-![Project Details](static/images/project-details.jpg)
+![Screenshot 2025-01-30 004540](https://github.com/user-attachments/assets/e2cf40da-d63c-4227-8b29-95264fd765f2)
 
-## 🛠️ Technologies Used
+## 🛠️ Tools Used
+![Screenshot 2025-01-30 004431](https://github.com/user-attachments/assets/029ed6a4-bac4-4318-8607-769b8f89da97)
 
 ### Frontend
 - HTML5
