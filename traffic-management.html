@@ -18,14 +18,14 @@
     </div>
 
     <!-- Image Carousel -->
-    <div class="container mx-auto px-4 py-8">
+    <div class="container mx-auto px-4 py-4 md:py-8">
         <div class="max-w-4xl mx-auto" x-data="{ activeSlide: 0, slides: [
             'https://i.ibb.co/PG6Mq0wd/traffic1.png',
             'https://i.ibb.co/Q3mbwP7F/traffic2.png',
             'https://i.ibb.co/pB4Kf7yZ/traffic3.png'
         ] }" x-init="setInterval(() => { activeSlide = activeSlide === slides.length - 1 ? 0 : activeSlide + 1 }, 3000)">
             <!-- Carousel Container -->
-            <div class="relative rounded-xl overflow-hidden shadow-2xl h-[500px]">
+            <div class="relative rounded-xl overflow-hidden shadow-2xl h-[300px] md:h-[500px]">
                 <!-- Images -->
                 <template x-for="(slide, index) in slides" :key="index">
                     <div x-show="activeSlide === index" 
@@ -68,22 +68,22 @@
     </div>
 
     <!-- Project Content -->
-    <div class="container mx-auto px-4 py-8">
-        <div class="max-w-4xl mx-auto space-y-8">
+    <div class="container mx-auto px-4 py-4 md:py-8">
+        <div class="max-w-4xl mx-auto space-y-6 md:space-y-8">
             <!-- Description -->
-            <section class="bg-white rounded-xl p-6 shadow-lg transition-all duration-500 ease-in-out hover:shadow-2xl transform hover:scale-[1.01] hover:bg-sky-50">
+            <section class="bg-white rounded-xl p-4 md:p-6 shadow-lg transition-all duration-500 ease-in-out hover:shadow-2xl transform hover:scale-[1.01] hover:bg-sky-50">
                 <h2 class="text-2xl font-bold text-sky-800 mb-4">Description</h2>
                 <p class="text-gray-600">The Emergency Vehicle Traffic Management System is a web application designed to revolutionize how emergency vehicles navigate through traffic. By implementing real-time traffic monitoring and automated signal control, the system significantly reduces emergency response times and enhances road safety for all users.</p>
             </section>
 
             <!-- Project Overview -->
-            <section class="bg-white rounded-xl p-6 shadow-lg transition-all duration-500 ease-in-out hover:shadow-2xl transform hover:scale-[1.01] hover:bg-sky-50">
+            <section class="bg-white rounded-xl p-4 md:p-6 shadow-lg transition-all duration-500 ease-in-out hover:shadow-2xl transform hover:scale-[1.01] hover:bg-sky-50">
                 <h2 class="text-2xl font-bold text-sky-800 mb-4">Project Overview</h2>
                 <p class="text-gray-600">The Emergency Vehicle Traffic Management System is a web-based application designed to optimize traffic flow for emergency vehicles. It helps reduce emergency response times by providing real-time traffic management solutions and promoting road safety awareness.</p>
             </section>
 
             <!-- Key Features -->
-            <section class="bg-white rounded-xl p-6 shadow-lg transition-all duration-500 ease-in-out hover:shadow-2xl transform hover:scale-[1.01] hover:bg-sky-50">
+            <section class="bg-white rounded-xl p-4 md:p-6 shadow-lg transition-all duration-500 ease-in-out hover:shadow-2xl transform hover:scale-[1.01] hover:bg-sky-50">
                 <h2 class="text-2xl font-bold text-sky-800 mb-4">Key Features</h2>
                 <ul class="list-disc list-inside text-gray-600 space-y-2">
                     <li>Real-time traffic monitoring and signal control</li>
@@ -94,7 +94,7 @@
             </section>
 
             <!-- Purpose -->
-            <section class="bg-white rounded-xl p-6 shadow-lg transition-all duration-500 ease-in-out hover:shadow-2xl transform hover:scale-[1.01] hover:bg-sky-50">
+            <section class="bg-white rounded-xl p-4 md:p-6 shadow-lg transition-all duration-500 ease-in-out hover:shadow-2xl transform hover:scale-[1.01] hover:bg-sky-50">
                 <h2 class="text-2xl font-bold text-sky-800 mb-4">Purpose</h2>
                 <ul class="list-disc list-inside text-gray-600 space-y-2">
                     <li>Reduce emergency response times</li>
@@ -105,7 +105,7 @@
             </section>
 
             <!-- Target Users -->
-            <section class="bg-white rounded-xl p-6 shadow-lg transition-all duration-500 ease-in-out hover:shadow-2xl transform hover:scale-[1.01] hover:bg-sky-50">
+            <section class="bg-white rounded-xl p-4 md:p-6 shadow-lg transition-all duration-500 ease-in-out hover:shadow-2xl transform hover:scale-[1.01] hover:bg-sky-50">
                 <h2 class="text-2xl font-bold text-sky-800 mb-4">Target Users</h2>
                 <ul class="list-disc list-inside text-gray-600 space-y-2">
                     <li>Emergency Response Teams</li>
@@ -116,7 +116,7 @@
             </section>
 
             <!-- Technical Implementation -->
-            <section class="bg-white rounded-xl p-6 shadow-lg transition-all duration-500 ease-in-out hover:shadow-2xl transform hover:scale-[1.01] hover:bg-sky-50">
+            <section class="bg-white rounded-xl p-4 md:p-6 shadow-lg transition-all duration-500 ease-in-out hover:shadow-2xl transform hover:scale-[1.01] hover:bg-sky-50">
                 <h2 class="text-2xl font-bold text-sky-800 mb-4">Technical Implementation</h2>
                 <ul class="list-disc list-inside text-gray-600 space-y-2">
                     <li>Frontend: HTML, Tailwind CSS, JavaScript</li>
