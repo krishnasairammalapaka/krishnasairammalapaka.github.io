@@ -1,175 +1,837 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krishna Sairam - Portfolio</title>
+    <title>Malapaka Krishna Sairam</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fafafa;
+            color: #2d3748;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #e5e7eb;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #2563eb;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #2563eb;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
+        .input-focus {
+            transition: all 0.3s ease;
+        }
+        
+        .input-focus:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            outline: none;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            bottom: -8px;
+            left: 20%;
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            border-radius: 2px;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            color: #2563eb;
+        }
+        
+        .button-primary {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .button-primary::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .button-primary:hover::before {
+            left: 100%;
+        }
+        
+        .button-secondary {
+            transition: all 0.3s ease;
+        }
+        
+        .button-secondary:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .skill-card {
+            transition: all 0.4s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-8px) scale(1.05);
+        }
+        
+        .skill-card:hover i {
+            transform: scale(1.2);
+        }
+        
+        .skill-icon {
+            transition: all 0.4s ease;
+        }
+        
+        /* Scroll reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Material elevation shadows */
+        .elevation-1 {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+        
+        .elevation-2 {
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        }
+        
+        .elevation-3 {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        }
+        
+        .elevation-hover {
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+        
+        .elevation-hover:hover {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-b from-white to-sky-100 min-h-screen flex flex-col">
+<body>
     <!-- Navbar -->
-    <nav class="bg-white shadow-md p-6">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row md:justify-between md:items-center">
-                <div class="flex justify-between items-center">
-                    <h1 class="text-3xl font-bold text-sky-600">Krishna Sairam</h1>
-                    <button id="mobile-menu-button" class="md:hidden text-sky-600 hover:text-sky-800">
-                        <i class="fas fa-bars text-2xl"></i>
+    <nav class="fixed w-full z-50 bg-white shadow-md elevation-1">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold gradient-text">Malapaka Krishna Sairam</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuButton" class="p-2 rounded-md text-gray-600 hover:bg-gray-100 transition-all duration-300">
+                        <span class="material-icons">menu</span>
                     </button>
                 </div>
-                <ul id="mobile-menu" class="hidden md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-4 md:mt-0">
-                    <li>
-                        <a href="/" class="group bg-sky-50 p-4 rounded-lg transition-all duration-300 hover:bg-sky-100 transform hover:scale-105 flex items-center gap-2 shadow-sm hover:shadow-md">
-                            <i class="fas fa-home text-sky-700 text-xl"></i>
-                            <span class="text-sky-800 font-medium">Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/about" class="group bg-sky-50 p-4 rounded-lg transition-all duration-300 hover:bg-sky-100 transform hover:scale-105 flex items-center gap-2 shadow-sm hover:shadow-md">
-                            <i class="fas fa-user text-sky-700 text-xl"></i>
-                            <span class="text-sky-800 font-medium">About</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/projects" class="group bg-sky-50 p-4 rounded-lg transition-all duration-300 hover:bg-sky-100 transform hover:scale-105 flex items-center gap-2 shadow-sm hover:shadow-md">
-                            <i class="fas fa-code text-sky-700 text-xl"></i>
-                            <span class="text-sky-800 font-medium">Projects</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/skills" class="group bg-sky-50 p-4 rounded-lg transition-all duration-300 hover:bg-sky-100 transform hover:scale-105 flex items-center gap-2 shadow-sm hover:shadow-md">
-                            <i class="fas fa-tools text-sky-700 text-xl"></i>
-                            <span class="text-sky-800 font-medium">Skills</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/contact" class="group bg-sky-50 p-4 rounded-lg transition-all duration-300 hover:bg-sky-100 transform hover:scale-105 flex items-center gap-2 shadow-sm hover:shadow-md">
-                            <i class="fas fa-envelope text-sky-700 text-xl"></i>
-                            <span class="text-sky-800 font-medium">Contact</span>
-                        </a>
-                    </li>
-                </ul>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobileMenu" class="hidden md:hidden transition-all duration-300 ease-in-out">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#home" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Home</a>
+                    <a href="#about" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">About</a>
+                    <a href="#skills" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Skills</a>
+                    <a href="#projects" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Projects</a>
+                    <a href="#contact" class="block text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Contact</a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="container mx-auto text-center py-8 md:py-20 px-4 flex-grow">
-        <div class="bg-white p-6 md:p-12 rounded-2xl shadow-lg max-w-4xl mx-auto transform hover:scale-105 transition duration-300">
-            <h2 class="text-3xl md:text-5xl font-bold text-sky-600 mb-6">
-                Krishna Sairam
-                <span class="block text-2xl md:text-3xl text-gray-600 mt-2">Crafting Secure Digital Experiences</span>
-            </h2>
-            <div class="space-y-6">
-                <!-- Introduction -->
-                <div class="mb-8">
-                    <p class="text-xl md:text-2xl text-gray-700 mb-4">Full Stack Developer & Cybersecurity Enthusiast</p>
-                    <p class="text-gray-600 leading-relaxed">
-                        Passionate about creating secure, scalable web applications and implementing robust cybersecurity solutions.
-                    </p>
-                </div>
-
-                <!-- Key Strengths -->
-                <div class="bg-sky-50 p-6 rounded-xl">
-                    <h3 class="text-2xl font-bold text-sky-700 mb-4">Core Strengths</h3>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
-                            <i class="fas fa-code text-sky-600 text-2xl mb-2"></i>
-                            <h4 class="text-lg font-semibold text-sky-800">Full Stack Expertise</h4>
-                            <p class="text-gray-600">Proficient in both frontend and backend development with modern technologies</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
-                            <i class="fas fa-shield-alt text-sky-600 text-2xl mb-2"></i>
-                            <h4 class="text-lg font-semibold text-sky-800">Security-First Approach</h4>
-                            <p class="text-gray-600">Strong focus on implementing secure coding practices and cybersecurity measures</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Experience Highlights -->
-                <div class="bg-sky-50 p-6 rounded-xl">
-                    <h3 class="text-2xl font-bold text-sky-700 mb-4">Experience Highlights</h3>
-                    <div class="space-y-4">
-                        <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
-                            <h4 class="text-lg font-semibold text-sky-800">Hackathon & Project Achievements</h4>
-                            <div class="space-y-4 mt-3">
-                                <!-- E-commerce Project -->
-                                <div class="border-l-4 border-sky-200 pl-4">
-                                    <h5 class="text-sky-700 font-semibold mb-2">E-Commerce Website Project</h5>
-                                    <ul class="space-y-2 text-gray-600">
-                                        <li class="flex items-start">
-                                            <span class="mr-2">•</span>
-                                            <span>Built Robust E-commerce APIs: Designed and implemented RESTful endpoints for products, categories, and orders</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span class="mr-2">•</span>
-                                            <span>Ensured Data Security: Implemented authentication (tokens/OAuth) and rigorous data validation</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span class="mr-2">•</span>
-                                            <span>Optimized Performance & Docs: Achieved fast responses, documented APIs clearly for developers</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- Traffic Management Project -->
-                                <div class="border-l-4 border-sky-200 pl-4">
-                                    <h5 class="text-sky-700 font-semibold mb-2">Traffic Management System</h5>
-                                    <p class="text-gray-600">Led development teams in creating an innovative emergency vehicle traffic management solution</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
-                            <h4 class="text-lg font-semibold text-sky-800">Project Leadership</h4>
-                            <p class="text-gray-600 mt-2">Successfully managed multiple development teams, ensuring project deliverables met high standards of quality and security</p>
-                            <div class="flex flex-wrap gap-2 mt-3">
-                                <span class="px-3 py-1 bg-sky-50 text-sky-600 rounded-full text-sm">Team Leadership</span>
-                                <span class="px-3 py-1 bg-sky-50 text-sky-600 rounded-full text-sm">Agile Development</span>
-                                <span class="px-3 py-1 bg-sky-50 text-sky-600 rounded-full text-sm">Project Management</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Professional Dedication -->
-                <div class="bg-sky-50 p-6 rounded-xl">
-                    <h3 class="text-2xl font-bold text-sky-700 mb-4">Why Work With Me?</h3>
-                    <div class="space-y-3 text-left">
-                        <p class="text-gray-700"><i class="fas fa-check text-sky-600 mr-2"></i>Committed to delivering high-quality, scalable solutions</p>
-                        <p class="text-gray-700"><i class="fas fa-check text-sky-600 mr-2"></i>Strong problem-solving abilities and analytical mindset</p>
-                        <p class="text-gray-700"><i class="fas fa-check text-sky-600 mr-2"></i>Excellent team collaboration and communication skills</p>
-                        <p class="text-gray-700"><i class="fas fa-check text-sky-600 mr-2"></i>Continuous learner, always staying updated with latest technologies</p>
-                    </div>
-                </div>
-
-                <!-- Call to Action -->
-                <div class="flex flex-col md:flex-row gap-4 justify-center items-center mt-8">
-                    <a href="/projects" class="bg-sky-600 text-white px-8 py-3 rounded-lg hover:bg-sky-700 transition duration-300 shadow-md flex items-center gap-2">
-                        <i class="fas fa-project-diagram"></i>
-                        View My Projects
-                    </a>
-                    <a href="/contact" class="bg-sky-100 text-sky-600 px-8 py-3 rounded-lg hover:bg-sky-200 transition duration-300 shadow-md flex items-center gap-2">
-                        <i class="fas fa-envelope"></i>
-                        Get In Touch
+    <section id="home" class="hero-gradient pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 reveal">
+                    <span class="gradient-text">Hello, I'm</span>
+                    <span class="block mt-3 text-gray-800">Malapaka Krishna Sairam</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-10 reveal">Full Stack Developer & Cybersecurity Enthusiast</p>
+                <div class="flex flex-col sm:flex-row justify-center sm:space-x-6 space-y-4 sm:space-y-0 reveal">
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl button-primary">Get in Touch</a>
+                    <a href="#projects" class="bg-white hover:bg-gray-50 text-gray-800 px-8 py-3 rounded-full shadow-lg hover:shadow-xl border border-gray-200 button-secondary">View Projects</a>
+                    <a href="Malapaka Krishna Sairam.pdf" download="Malapaka Krishna Sairam - Resume.pdf" class="bg-transparent hover:bg-blue-50 text-blue-600 px-8 py-3 rounded-full shadow-lg hover:shadow-xl border-2 border-blue-500 transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="fas fa-download mr-2"></i>Download CV
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl font-bold text-center mb-16 reveal">About Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 reveal">
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        A passionate developer with a keen eye for design and a drive for creating exceptional user experiences. 
+                        With expertise in modern web technologies and a problem-solving mindset.
+                    </p>
+                    <div class="flex space-x-8">
+                        <a href="https://github.com/krishnasairammalapaka" class="text-gray-600 hover:text-blue-600 social-icon">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/malapaka-krishna-sairam/" class="text-gray-600 hover:text-blue-600 social-icon">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://x.com/krishnaSairam15" class="text-gray-600 hover:text-blue-600 social-icon">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl card reveal" style="transition-delay: 0.3s">
+                        <h3 class="font-bold text-xl mb-2 text-gray-800">Projects</h3>
+                        <p class="text-gray-600">20+ Completed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl font-bold text-center mb-16 reveal">Skills & Expertise</h2>
+            
+            <!-- Programming Languages -->
+            <div class="mb-16 reveal">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">
+                    <span class="border-b-2 border-red-500 pb-1">Programming Languages</span>
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+                    <div class="bg-white p-8 rounded-xl elevation-2 elevation-hover text-center skill-card" style="transition-delay: 0.1s">
+                        <i class="fab fa-python text-5xl mb-6 text-blue-500 skill-icon"></i>
+                        <h3 class="font-semibold text-lg text-gray-800">Python</h3>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl elevation-2 elevation-hover text-center skill-card" style="transition-delay: 0.2s">
+                        <i class="fab fa-java text-5xl mb-6 text-red-500 skill-icon"></i>
+                        <h3 class="font-semibold text-lg text-gray-800">Java</h3>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl elevation-2 elevation-hover text-center skill-card" style="transition-delay: 0.3s">
+                        <i class="fas fa-code text-5xl mb-6 text-gray-700 skill-icon"></i>
+                        <h3 class="font-semibold text-lg text-gray-800">C</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Frontend Skills -->
+            <div class="mb-16 reveal">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">
+                    <span class="border-b-2 border-blue-500 pb-1">Frontend Development</span>
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+                    <div class="bg-white p-8 rounded-xl elevation-2 elevation-hover text-center skill-card" style="transition-delay: 0.1s">
+                        <i class="fab fa-html5 text-5xl mb-6 text-orange-500 skill-icon"></i>
+                        <h3 class="font-semibold text-lg text-gray-800">HTML5</h3>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl elevation-2 elevation-hover text-center skill-card" style="transition-delay: 0.2s">
+                        <i class="fab fa-css3-alt text-5xl mb-6 text-blue-500 skill-icon"></i>
+                        <h3 class="font-semibold text-lg text-gray-800">CSS3</h3>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl elevation-2 elevation-hover text-center skill-card" style="transition-delay: 0.3s">
+                        <i class="fab fa-js text-5xl mb-6 text-yellow-500 skill-icon"></i>
+                        <h3 class="font-semibold text-lg text-gray-800">JavaScript</h3>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl elevation-2 elevation-hover text-center skill-card" style="transition-delay: 0.4s">
+                        <i class="fab fa-react text-5xl mb-6 text-blue-400 skill-icon"></i>
+                        <h3 class="font-semibold text-lg text-gray-800">React</h3>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl elevation-2 elevation-hover text-center skill-card" style="transition-delay: 0.5s">
+                        <i class="material-icons text-5xl mb-6 text-blue-600 skill-icon">dashboard</i>
+                        <h3 class="font-semibold text-lg text-gray-800">Material UI</h3>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl elevation-2 elevation-hover text-center skill-card" style="transition-delay: 0.6s">
+                        <i class="fab fa-css3 text-5xl mb-6 text-teal-500 skill-icon"></i>
+                        <h3 class="font-semibold text-lg text-gray-800">Tailwind CSS</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Backend Skills -->
+            <div class="mb-16 reveal">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">
+                    <span class="border-b-2 border-green-500 pb-1">Backend Development</span>
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-3xl mx-auto">
+                    <div class="bg-white p-8 rounded-xl elevation-2 elevation-hover text-center skill-card" style="transition-delay: 0.1s">
+                        <i class="fab fa-node-js text-5xl mb-6 text-green-600 skill-icon"></i>
+                        <h3 class="font-semibold text-lg text-gray-800">Node.js</h3>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl elevation-2 elevation-hover text-center skill-card" style="transition-delay: 0.2s">
+                        <i class="fas fa-server text-5xl mb-6 text-purple-600 skill-icon"></i>
+                        <h3 class="font-semibold text-lg text-gray-800">Express.js</h3>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl elevation-2 elevation-hover text-center skill-card" style="transition-delay: 0.3s">
+                        <i class="fas fa-cogs text-5xl mb-6 text-gray-700 skill-icon"></i>
+                        <h3 class="font-semibold text-lg text-gray-800">RESTful APIs</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Database Skills -->
+            <div class="reveal">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">
+                    <span class="border-b-2 border-yellow-500 pb-1">Databases</span>
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-2 gap-8 max-w-xl mx-auto">
+                    <div class="bg-white p-8 rounded-xl elevation-2 elevation-hover text-center skill-card" style="transition-delay: 0.1s">
+                        <i class="fas fa-database text-5xl mb-6 text-green-500 skill-icon"></i>
+                        <h3 class="font-semibold text-lg text-gray-800">MongoDB</h3>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl elevation-2 elevation-hover text-center skill-card" style="transition-delay: 0.2s">
+                        <i class="fas fa-table text-5xl mb-6 text-blue-500 skill-icon"></i>
+                        <h3 class="font-semibold text-lg text-gray-800">SQL</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl font-bold text-center mb-16 reveal">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white rounded-xl elevation-2 elevation-hover overflow-hidden card reveal project-card" style="transition-delay: 0.1s" data-project-id="1">
+                    <div class="overflow-hidden">
+                        <img src="images/portfolio-1.png" alt="Portfolio Website" class="w-full h-48 object-cover transform hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">My Portfolio</h3>
+                        <p class="text-gray-600 mb-4">A responsive and interactive portfolio website built using modern web technologies. This website showcases my skills, projects, and experiences in a clean, user-friendly interface.</p>
+                        <div class="flex space-x-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">HTML</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">Tailwind CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-white rounded-xl elevation-2 elevation-hover overflow-hidden card reveal project-card" style="transition-delay: 0.3s" data-project-id="2">
+                    <div class="overflow-hidden">
+                        <img src="images/Lanemates-1.jpg" alt="Project 2" class="w-full h-48 object-cover transform hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Lanemates-Carpooling APP</h3>
+                        <p class="text-gray-600 mb-4">Developed a carpooling mobile application for users within a specific location to find ride-sharing options with seat selection visualization.</p>
+                        <div class="flex space-x-2">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">Flutter</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-white rounded-xl elevation-2 elevation-hover overflow-hidden card reveal project-card" style="transition-delay: 0.5s" data-project-id="3">
+                    <div class="overflow-hidden">
+                        <img src="https://via.placeholder.com/600x300" alt="Project 3" class="w-full h-48 object-cover transform hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Weather Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Real-time weather application with interactive maps and forecasts.</p>
+                        <div class="flex space-x-2">
+                            <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-medium">Angular</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity" id="modalOverlay"></div>
+        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full mx-4 overflow-hidden z-10 transition-all transform scale-95 opacity-0" id="modalContent">
+            <div class="relative">
+                <!-- Image Carousel -->
+                <div class="carousel relative">
+                    <div id="carouselImages" class="w-full">
+                        <img src="" alt="Project Image" id="modalImage" class="w-full h-56 object-cover object-top transition-opacity duration-300">
+                    </div>
+                    
+                    <!-- Carousel Controls -->
+                    <div class="absolute inset-0 flex items-center justify-between px-4">
+                        <button id="prevImage" class="bg-black bg-opacity-50 text-white p-2 rounded-full text-xl opacity-75 hover:opacity-100 transition-opacity duration-300 flex items-center">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button id="nextImage" class="bg-black bg-opacity-50 text-white p-2 rounded-full text-xl opacity-75 hover:opacity-100 transition-opacity duration-300 flex items-center">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Image Indicators -->
+                    <div id="carouselIndicators" class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                        <!-- Indicators will be added dynamically -->
+                    </div>
+                </div>
+                
+                <button id="closeModal" class="absolute top-4 right-4 bg-white rounded-full p-2 elevation-1 hover:elevation-3 transition-all duration-300">
+                    <span class="material-icons text-gray-700">close</span>
+                </button>
+            </div>
+            <div class="p-6">
+                <h2 id="modalTitle" class="text-2xl font-bold text-gray-800 mb-3"></h2>
+                <div class="flex flex-wrap gap-2 mb-4" id="modalTags"></div>
+                <p id="modalDescription" class="text-gray-600 mb-6 text-base leading-relaxed"></p>
+                <div class="flex flex-col md:flex-row gap-4 md:gap-6 mb-6">
+                    <div class="flex-1">
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Features</h3>
+                        <ul id="modalFeatures" class="list-disc pl-5 text-gray-600 space-y-1 text-sm"></ul>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Tech Stack</h3>
+                        <ul id="modalTechStack" class="list-disc pl-5 text-gray-600 space-y-1 text-sm"></ul>
+                    </div>
+                </div>
+                <div class="flex justify-end mt-6 space-x-4">
+                    <a id="modalDemo" href="#" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm">
+                        <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                    </a>
+                    <a id="modalRepo" href="#" target="_blank" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm">
+                        <i class="fab fa-github mr-2"></i>GitHub Repo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl font-bold text-center mb-16 reveal">Get In Touch</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-xl elevation-3 p-8 reveal">
+                    <form class="space-y-6">
+                        <div class="reveal" style="transition-delay: 0.1s">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-200 input-focus" placeholder="Malapaka Krishna Sairam">
+                        </div>
+                        <div class="reveal" style="transition-delay: 0.2s">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-lg border border-gray-200 input-focus" placeholder="your@email.com">
+                        </div>
+                        <div class="reveal" style="transition-delay: 0.3s">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-200 input-focus" placeholder="Your message"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg shadow-lg hover:shadow-xl button-primary reveal" style="transition-delay: 0.4s">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="bg-white shadow-lg text-center p-6">
-        <p class="text-sky-600">&copy; 2024 Krishna Sairam. All Rights Reserved.</p>
+    <footer class="bg-white border-t border-gray-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold gradient-text">Malapaka Krishna Sairam</h3>
+                    <p class="text-gray-600 mt-1">Full Stack Developer</p>
+                </div>
+                <div class="flex space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-blue-600 social-icon">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600 social-icon">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600 social-icon">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-gray-500">
+                <p>&copy; 2024 Your Portfolio. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <!-- Mobile Menu JavaScript -->
+    <!-- JavaScript for scroll and mobile menu -->
     <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
 
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+
+        // Scroll reveal animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for(let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if(elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
+        
+        // Initial check to reveal elements that are already visible on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            reveal();
+            
+            // Smooth Scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Project Modal Functionality
+            const projectModal = document.getElementById('projectModal');
+            const modalContent = document.getElementById('modalContent');
+            const modalOverlay = document.getElementById('modalOverlay');
+            const closeModal = document.getElementById('closeModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalTags = document.getElementById('modalTags');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalFeatures = document.getElementById('modalFeatures');
+            const modalTechStack = document.getElementById('modalTechStack');
+            const modalDemo = document.getElementById('modalDemo');
+            const modalRepo = document.getElementById('modalRepo');
+
+            // Project data
+            const projects = {
+                1: {
+                    title: "My Portfolio",
+                    images: ["images/portfolio-1.png", "images/portfolio-2.png"],
+                    description: "A responsive and interactive portfolio website built using modern web technologies. This website showcases my skills, projects, and experiences in a clean, user-friendly interface.",
+                    tags: [
+                        {name: "HTML", color: "blue"},
+                        {name: "Tailwind CSS", color: "teal"}
+                    ],
+                    features: [
+                        "Responsive design for all devices",
+                        "Light/dark mode toggle",
+                        "Animated section transitions",
+                        "Contact form functionality",
+                        "SEO optimized"
+                    ],
+                    techStack: [
+                        "HTML",
+                        "Tailwind CSS",
+                    ],
+                    repoUrl: "https://github.com/krishnasairammalapaka/krishnasairammalapaka.github.io"
+                },
+                2: {
+                    title: "Lanemates-Carpooling App",
+                    images: ["https://via.placeholder.com/600x300"],
+                    description: "Developed a carpooling mobile application for users within a specific location to find ride-sharing options with seat selection visualization.",
+                    tags: [
+                        {name: "Flutter", color: "purple"},
+                        {name: "Kotlin", color: "yellow"},
+                        {name: "Firebase", color: "teal"}
+                    ],
+                    features: [
+                        "User authentication with Google Authentication",
+                        "Google Maps API",
+                        "Categorization and filtering",
+                        "Visual car seat selection",
+                        "Razorpay for payments"
+                    ],
+                    techStack: [
+                        "Flutter",
+                        "Kotlin",
+                        "Gradle",
+                        "open-JDK",
+                        "Firebase"
+                    ],
+                    repoUrl: "https://github.com/krishnasairammalapaka/task-manager"
+                },
+                3: {
+                    title: "Weather Dashboard",
+                    images: ["https://via.placeholder.com/600x300"],
+                    description: "An interactive weather application that provides real-time weather information and forecasts for locations worldwide. Features include interactive maps, 7-day forecasts, and weather alerts.",
+                    tags: [
+                        {name: "Angular", color: "red"},
+                        {name: "TypeScript", color: "blue"},
+                        {name: "OpenWeather API", color: "orange"}
+                    ],
+                    features: [
+                        "Real-time weather data",
+                        "7-day weather forecast",
+                        "Location-based weather",
+                        "Interactive map interface",
+                        "Severe weather alerts"
+                    ],
+                    techStack: [
+                        "Angular",
+                        "TypeScript",
+                        "OpenWeather API",
+                        "Chart.js",
+                        "Bootstrap"
+                    ],
+                    demoUrl: "#",
+                    repoUrl: "https://github.com/krishnasairammalapaka/weather-dashboard"
+                }
+            };
+
+            // Carousel variables
+            let currentImageIndex = 0;
+            let currentProjectImages = [];
+
+            // Open modal
+            function openModal(projectId) {
+                const project = projects[projectId];
+                
+                // Set carousel images array
+                currentProjectImages = project.images;
+                currentImageIndex = 0;
+                
+                // Update modal content
+                updateCarouselImage();
+                updateCarouselIndicators();
+                
+                modalTitle.textContent = project.title;
+                
+                // Clear and update tags
+                modalTags.innerHTML = '';
+                project.tags.forEach(tag => {
+                    const tagElement = document.createElement('span');
+                    tagElement.className = `px-3 py-1 bg-${tag.color}-100 text-${tag.color}-800 rounded-full text-sm font-medium`;
+                    tagElement.textContent = tag.name;
+                    modalTags.appendChild(tagElement);
+                });
+                
+                modalDescription.textContent = project.description;
+                
+                // Clear and update features
+                modalFeatures.innerHTML = '';
+                project.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    modalFeatures.appendChild(li);
+                });
+                
+                // Clear and update tech stack
+                modalTechStack.innerHTML = '';
+                project.techStack.forEach(tech => {
+                    const li = document.createElement('li');
+                    li.textContent = tech;
+                    modalTechStack.appendChild(li);
+                });
+                
+                // Update links
+                if (project.demoUrl) {
+                    modalDemo.href = project.demoUrl;
+                    modalDemo.style.display = 'inline-flex';
+                } else {
+                    modalDemo.style.display = 'none';
+                }
+                
+                if (project.repoUrl) {
+                    modalRepo.href = project.repoUrl;
+                    modalRepo.style.display = 'inline-flex';
+                } else {
+                    modalRepo.style.display = 'none';
+                }
+                
+                // Show modal with animation
+                projectModal.classList.remove('hidden');
+                setTimeout(() => {
+                    modalContent.classList.remove('scale-95', 'opacity-0');
+                    modalContent.classList.add('scale-100', 'opacity-100');
+                }, 10);
+                
+                // Prevent body scrolling
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Update carousel image
+            function updateCarouselImage() {
+                modalImage.src = currentProjectImages[currentImageIndex];
+                modalImage.alt = `Project Image ${currentImageIndex + 1}`;
+                
+                // Update active indicator
+                const indicators = document.querySelectorAll('.carousel-indicator');
+                indicators.forEach((indicator, index) => {
+                    if (index === currentImageIndex) {
+                        indicator.classList.add('bg-white');
+                        indicator.classList.remove('bg-white', 'bg-opacity-50');
+                    } else {
+                        indicator.classList.remove('bg-white');
+                        indicator.classList.add('bg-white', 'bg-opacity-50');
+                    }
+                });
+            }
+            
+            // Create carousel indicators
+            function updateCarouselIndicators() {
+                const indicatorsContainer = document.getElementById('carouselIndicators');
+                indicatorsContainer.innerHTML = '';
+                
+                // Only show indicators if there are multiple images
+                if (currentProjectImages.length <= 1) {
+                    // Hide carousel controls for single image
+                    document.getElementById('prevImage').style.display = 'none';
+                    document.getElementById('nextImage').style.display = 'none';
+                    return;
+                }
+                
+                // Show carousel controls
+                document.getElementById('prevImage').style.display = 'flex';
+                document.getElementById('nextImage').style.display = 'flex';
+                
+                // Create indicators
+                currentProjectImages.forEach((_, index) => {
+                    const indicator = document.createElement('button');
+                    indicator.className = `w-2 h-2 rounded-full ${index === currentImageIndex ? 'bg-white' : 'bg-white bg-opacity-50'}`;
+                    indicator.classList.add('carousel-indicator');
+                    indicator.addEventListener('click', () => {
+                        currentImageIndex = index;
+                        updateCarouselImage();
+                    });
+                    indicatorsContainer.appendChild(indicator);
+                });
+            }
+            
+            // Next image
+            document.getElementById('nextImage').addEventListener('click', () => {
+                if (currentProjectImages.length > 1) {
+                    currentImageIndex = (currentImageIndex + 1) % currentProjectImages.length;
+                    updateCarouselImage();
+                }
+            });
+            
+            // Previous image
+            document.getElementById('prevImage').addEventListener('click', () => {
+                if (currentProjectImages.length > 1) {
+                    currentImageIndex = (currentImageIndex - 1 + currentProjectImages.length) % currentProjectImages.length;
+                    updateCarouselImage();
+                }
+            });
+
+            // Close modal
+            function closeModalFunc() {
+                modalContent.classList.remove('scale-100', 'opacity-100');
+                modalContent.classList.add('scale-95', 'opacity-0');
+                
+                setTimeout(() => {
+                    projectModal.classList.add('hidden');
+                    // Restore body scrolling
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+
+            // Add click event to project cards
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const projectId = card.getAttribute('data-project-id');
+                    openModal(projectId);
+                });
+            });
+
+            // Close modal events
+            closeModal.addEventListener('click', closeModalFunc);
+            modalOverlay.addEventListener('click', closeModalFunc);
+            
+            // Close modal on ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !projectModal.classList.contains('hidden')) {
+                    closeModalFunc();
+                }
+            });
+        });
     </script>
 </body>
-</html>
+</html> 
